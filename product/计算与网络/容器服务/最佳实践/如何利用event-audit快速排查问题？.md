@@ -74,4 +74,4 @@ event.source.component : "cluster-autoscaler"
 ![](https://main.qcloudimg.com/raw/a7d4649a541b40db5d3190b0dc049124.png)
 
 
-由上图可见，通过事件可以看到节点扩容操作在‘2020-11-25 20:35:45’左右分别由pod(nginx-5dbf784b68-tq8rd/nginx-5dbf784b68-fpvbx/nginx-5dbf784b68-v9jv5)进行触发，最终将节点数扩增3个，后续的扩容由于达到节点池的最大节点数没有再次触发；
+由上图可见，通过事件可以看到节点扩容操作在‘2020-11-25 20:35:45’左右分别由pod(nginx-5dbf784b68-tq8rd/nginx-5dbf784b68-fpvbx/nginx-5dbf784b68-v9jv5)进行触发，最终将节点数扩增3个，后续的扩容由于达到节点池的最大节点数没有再次触发。
