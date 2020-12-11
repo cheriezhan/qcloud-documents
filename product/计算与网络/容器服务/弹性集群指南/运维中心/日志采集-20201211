@@ -156,7 +156,18 @@ labels:
   **方式2：通过密钥采集日志到 cls**<span id="b"></span>  
 #### 创建 secret<span id="z"></span>
 
-通过 yaml 创建 secret，请使用具有写入CLS权限的secretid 及 secretkey进行填写。
+>！注意：以下是通过 yaml 手动创建 secret 的方法，如果通过控制台创建secret，则不需要进行64编码，详情请参考 [secret 管理](https://cloud.tencent.com/document/product/457/31718)
+
+通过 kubectl 执行以下命令，获取进行 base64编码的 secretid 和 secretkey。其中，secretid 及 secretkey 请替换为您实际使用的 secretid 和 secretkey。
+```shell
+$ echo -n 'secretid' | base64
+c2VjcmV0aWQ=
+$ echo -n 'secretkey' | base64
+c2VjcmV0a2V5
+```
+通过 yaml 手动创建 secret。secretid 及 secretkey 请使用在 [创建 secret](#z) 步骤中获取的值进行填写。
+
+```shell
 ```shell
 apiVersion: v1
 kind: Secret
