@@ -25,15 +25,15 @@ at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1210)
 ```
 apiVersion: v1 
 data:
-	parser.conf: |- 
-			[PARSER]
-			Name parser_name
-			Format regex
-			Regex ^(?<timestamp>[0-9]{2,4}\-[0-9]{1,2}\-[0-9]{1,2} [0-9]{1,2}\:[0-9]{1,2}\:[0-9]{1,2}) (?<message>.*) 
+  parser.conf: |- 
+    [PARSER]
+    Name parser_name
+    Format regex
+    Regex ^(?<timestamp>[0-9]{2,4}\-[0-9]{1,2}\-[0-9]{1,2} [0-9]{1,2}\:[0-9]{1,2}\:[0-9]{1,2}) (?<message>.*) 
 kind: ConfigMap
 metadata:
-			name: cm 
-			namespace: default
+  name: cm 
+  namespace: default
 ```
 
 其中的 parser_name 需要在创建工作负载的时候设置在annotation中：
@@ -55,48 +55,48 @@ eks.tke.cloud.tencent.com/volume-name-for-parser: "volume-name"
 apiVersion: apps/v1 
 kind: Deployment 
 metadata:
-			labels:
-				k8s-app: multiline 
-				qcloud-app: multiline
-			name: multiline
-			namespace: default 
+  labels:
+    k8s-app: multiline 
+    qcloud-app: multiline
+      name: multiline
+      namespace: default 
 spec:
-			replicas: 1 
-			selector:
-				 matchLabels:
-			 k8s-app: multiline
-			qcloud-app: multiline 
-			template:
-				metadata: 
-					annotations:
-						eks.tke.cloud.tencent.com/parser-name: parser_name
-						eks.tke.cloud.tencent.com/volume-name-for-parser: volume-name 
-				labels:
-					k8s-app: multiline
-					qcloud-app: multiline 
-spec:
-			containers: 
-			- env:
-				- name: EKS_LOGS_OUTPUT_TYPE 
-					value: cls
-				- name: EKS_LOGS_LOG_PATHS 
-					value: stdout
-				- name: EKS_LOGS_TOPIC_ID 
-					value: topic-id
-				- name: EKS_LOGS_LOGSET_NAME 
-					value: eks
-				- name: EKS_LOGS_SECRET_ID 
-					valueFrom:
-						secretKeyRef: 
-							key: SecretId 
-							name: cls 
-							optional: false
-				- name: EKS_LOGS_SECRET_KEY 
-					valueFrom:
-						secretKeyRef: 
-							key: SecretKey 
-							name: cls 
-							optional: false
+  replicas: 1 
+  selector:
+    matchLabels:
+    k8s-app: multiline
+    qcloud-app: multiline 
+template:
+  metadata: 
+      annotations:
+        eks.tke.cloud.tencent.com/parser-name: parser_name
+        eks.tke.cloud.tencent.com/volume-name-for-parser: volume-name 
+      labels:
+        k8s-app: multiline
+        qcloud-app: multiline 
+   spec:
+containers: 
+	- env:
+		- name: EKS_LOGS_OUTPUT_TYPE 
+		value: cls
+		- name: EKS_LOGS_LOG_PATHS 
+		value: stdout
+		- name: EKS_LOGS_TOPIC_ID 
+		value: topic-id
+		- name: EKS_LOGS_LOGSET_NAME 
+		value: eks
+		- name: EKS_LOGS_SECRET_ID 
+		valueFrom:
+			secretKeyRef: 
+				key: SecretId 
+				name: cls 
+				optional: false
+		- name: EKS_LOGS_SECRET_KEY 
+		valueFrom:
+			secretKeyRef: 
+					key: SecretKey 
+					name: cls 
+					optional: false
 image: nginx 
 imagePullPolicy: Always 
 name: ng
