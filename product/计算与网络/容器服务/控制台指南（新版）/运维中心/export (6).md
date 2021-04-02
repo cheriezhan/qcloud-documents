@@ -37,7 +37,8 @@ metadata:
 ```
 
 其中的 parser_name 需要在创建工作负载的时候设置在annotation中：
-spec.template.metadata.annotations eks.tke.cloud.tencent.com/parser-name: parser_name
+spec.template.metadata.annotations 
+eks.tke.cloud.tencent.com/parser-name: parser_name
 
 ## 创建Pod时挂载Configmap
 在创建pod时需要做一下操作，
