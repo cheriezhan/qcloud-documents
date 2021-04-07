@@ -33,7 +33,7 @@ internal.eks.tke.cloud.tencent.com/tail-buffer-chunk-size: "2M"
 internal.eks.tke.cloud.tencent.com/tail-buffer-max-size: "2M"
 ```
 
-两个annotation的含义如下，可参考详情[Fluent Bit](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/unit-sizes）
+两个annotation的含义如下，可参考详情[Fluent Bit](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/unit-sizes)
 
 | 参数 | 含义 | 默认值 |
 |---------|---------|---------|
