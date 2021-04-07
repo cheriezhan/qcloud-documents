@@ -39,6 +39,7 @@ metadata:
 其中的 parser_name 需要在创建工作负载的时候设置在annotation中：
 spec.template.metadata.annotations 
 eks.tke.cloud.tencent.com/parser-name: parser_name
+关于更多parser.conf情况可参考[Regular Expression](https://docs.fluentbit.io/manual/pipeline/parsers/regular-expression)
 
 ## 创建Pod时挂载Configmap
 在创建pod时需要做一下操作，
