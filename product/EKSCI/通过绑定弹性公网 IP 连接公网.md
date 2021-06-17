@@ -13,9 +13,12 @@
 
 ## 在创建容器实例时绑定弹性公网IP
 绑定弹性公网IP需要在创建容器实例时进行，
+
 1、登录 [容器实例控制台]()，点击新建实例。如下图所示：
 ![](https://main.qcloudimg.com/raw/5ac5d1e3d5e6beffc428bcb58fa18e78.png)
+
 2、根据实际需求，设置容器实例的参数，具体请参考[创建容器实例](https://cloud-doc.isd.com/document/product/457/57341#step2)。完成后，点击下一步。
+
 3、开启绑定弹性公网IP，支持两种绑定方式，
 ![](https://main.qcloudimg.com/raw/a419b90448e11ca2b40b665073c9abea.png)
 
